@@ -139,14 +139,14 @@ class CustomFastRCNNOutputLayers(FastRCNNOutputLayers):
             distil_l1_loss = self.distil_l1_loss(image_features, clip_features)
             if self.irm_loss_weight > 0:
                 # Inter-embedding relationship matching loss (IRM)
-                irm_loss = self.irm_loss(image_features, clip_features)
+                irm_loss = 0 #self.irm_loss(image_features, clip_features)
                 return {
                     "cls_loss": cls_loss,
                     "box_reg_loss": self.box_reg_loss(
                         proposal_boxes, gt_boxes, proposal_deltas, gt_classes,
                         num_classes=num_classes),
                     "distil_l1_loss": distil_l1_loss,
-                    "irm_loss": irm_loss,
+                    # "irm_loss": irm_loss,
                 }
             else:
                 return {
@@ -166,18 +166,32 @@ class CustomFastRCNNOutputLayers(FastRCNNOutputLayers):
 
     # Point-wise embedding matching loss (L1)
     def distil_l1_loss(self, image_features, clip_features):
-        weight = self.distil_l1_loss_weight * self.rkd_temperature
-        loss = F.l1_loss(image_features, clip_features, reduction='mean')
-        loss = loss * weight
-        return loss
+        # weight = self.distil_l1_loss_weight * self.rkd_temperature
+        # loss = F.l1_loss(image_features, clip_features, reduction='mean')
+        # loss = loss * weight
+        image_features_norm = normalize(image_features, dim=-1)
+        clip_features_norm = normalize(clip_features, dim=-1)
+        cross_attention_matrix = torch.matmul(image_features_norm, clip_features_norm.T)
+        loss_barlowtwins = torch.sum((cross_attention_matrix - torch.eye(cross_attention_matrix.shape[0], device=cross_attention_matrix.device)) ** 2)
+        loss_barlowtwins = loss_barlowtwins * 0.1
+        return loss_barlowtwins
 
     # Inter-embedding relationship matching loss (IRM)
-    def irm_loss(self, image_features, clip_features):
-        weight = self.irm_loss_weight * self.rkd_temperature
-        g_img = normalize(torch.matmul(image_features, torch.t(image_features)), 1)
-        g_clip = normalize(torch.matmul(clip_features, torch.t(clip_features)), 1)
-        irm_loss = torch.norm(g_img - g_clip) ** 2
-        return irm_loss * weight
+    # def irm_loss(self, image_features, clip_features):
+    #     weight = self.irm_loss_weight * self.rkd_temperature
+    #     g_img = normalize(torch.matmul(image_features, torch.t(image_features)), 1)
+    #     g_clip = normalize(torch.matmul(clip_features, torch.t(clip_features)), 1)
+    #     irm_loss = torch.norm(g_img - g_clip) ** 2
+    #     return irm_loss * weight
+    
+    def barlow_twins_loss(self, image_features, clip_features):
+        weight = self.barlow_twins_loss_weight * self.rkd_temperature
+        image_features_norm = normalize(image_features, dim=-1)
+        clip_features_norm = normalize(clip_features, dim=-1)
+        cross_attention_matrix = torch.matmul(image_features_norm, clip_features_norm.T)
+        loss = torch.sum((cross_attention_matrix - torch.eye(cross_attention_matrix.shape[0], device=cross_attention_matrix.device)) ** 2)
+        loss = loss * weight
+        return loss
 
     def sigmoid_cross_entropy_loss(self, pred_class_logits, gt_classes):
         if pred_class_logits.numel() == 0:
@@ -308,13 +322,13 @@ class CustomFastRCNNOutputLayers(FastRCNNOutputLayers):
             distil_l1_loss = self.distil_l1_loss(image_features, clip_features)
             if self.irm_loss_weight > 0:
                 # Inter-embedding relationship loss (IRM)
-                irm_loss = self.irm_loss(image_features, clip_features)
+                # irm_loss = self.irm_loss(image_features, clip_features)
                 return {
                     'pms_loss': loss * self.pms_loss_weight,
                     'cls_loss': score.new_zeros([1])[0],
                     'box_reg_loss': score.new_zeros([1])[0],
                     'distil_l1_loss': distil_l1_loss,
-                    'irm_loss': irm_loss,
+                    # 'irm_loss': irm_loss,
                 }
             else:
                 return {
