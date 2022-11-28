@@ -3,7 +3,7 @@
 
 <hr />
 
-![main figure](docs/overall_architecture.pdf)
+![main figure](docs/overall_architecture.png)
 > **<p align="justify"> Abstract:** *Open-vocabulary object detection, which focuses on figuring out how to find novel categories given by text queries from the user, is getting more and more attention from the community. Existing open-vocabulary object detectors often increase the size of their vocabulary by utilizing various weak supervision techniques. Based on object-centric OVD, which was the first work to identify the misalignment between image-centric and object-centric in the previous approach and solve this limitation using region-based knowledge distillation (RKD), we investigate the bottleneck of RKD and propose using contrastive loss to achieve better representation alignment. To this end, our proposed method with contrastive loss consistency outperforms Object-Centric OVD across all settings for novel classes by a large margin while slightly increasing the performance of base classes.* </p>
 
 <hr />
