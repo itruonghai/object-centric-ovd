@@ -1,5 +1,5 @@
-# Object Centric Open Vocabulary Detection (NeurIPS 2022)
-Official repository of project "[Open-Vocabulary Object Detection with Barlow Twins]".
+# Object-centric Open-Vocabulary Object Detection with Barlow Twins
+<!-- Official repository of project "[Open-Vocabulary Object Detection with Barlow Twins]". -->
 
 <hr />
 
@@ -66,4 +66,4 @@ python train_net.py --num-gpus 8 --config-file /path/to/config/name.yaml --eval-
 
 ## References
 Our RKD and PIS methods utilize the MViT model Multiscale Attention ViT with Late fusion (MAVL) proposed in the work [Class-agnostic Object Detection with Multi-modal Transformer (ECCV 2022)](https://github.com/mmaaz60/mvits_for_class_agnostic_od).
-Our code is based on [Detic](https://github.com/facebookresearch/Detic) and [Centric] repositories. We thank them for releasing their code.
+Our code is based on [Detic](https://github.com/facebookresearch/Detic) and [Object-centric OVD](https://github.com/hanoonaR/object-centric-ovd) repositories. We thank them for releasing their code.
