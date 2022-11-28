@@ -54,7 +54,7 @@ and place them under `$object-centric-ovd/saved_models/`.
 To evaluate a pretrained model, run 
 
 ```
-python train_net.py --num-gpus 8 --config-file /path/to/config/name.yaml --eval-only MODEL.WEIGHTS /path/to/weight.pth
+python train_net.py --num-gpus 4 --config-file /path/to/config/name.yaml --eval-only MODEL.WEIGHTS /path/to/weight.pth
 ```
 <hr />
 
