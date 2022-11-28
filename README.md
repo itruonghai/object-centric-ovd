@@ -10,27 +10,23 @@
 
 ## Installation
 The code is tested with PyTorch 1.10.0 and CUDA 11.3. After cloning the repository, follow the below steps in [INSTALL.md](docs/INSTALL.md).
-All of our models are trained using 8 A100 GPUs. 
+All of our models are trained using 4 NVIDIA GTX3090 GPUs. 
 <hr />
 
-## Demo: Create your own custom detector
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](Object_Centric_OVD_Demo.ipynb) Checkout our demo using our interactive colab notebook. Create your own custom detector with your own class names. 
-
-
 ## Results
-We present performance of Object-centric Open Vocabulary object detector that demonstrates state-of-the-art results on Open Vocabulary COCO benchmark dataset.
+We present performance of our approach that demonstrates state-of-the-art results on Open Vocabulary COCO benchmark dataset.
 
 
 ### Open-vocabulary COCO 
 
 | Name                                                                                        | APnovel | APbase |  AP  | Train-time | Download                                                                                                                            |
 |:--------------------------------------------------------------------------------------------|:-------:|:------:|:----:|:----------:|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Base-OVD-RCNN-C4](configs/coco/Base-OVD-RCNN-C4.yaml)                                      |   1.7   |  53.2  | 39.6 |     8h     |[model](https://github.com/hanoonaR/object-centric-ovd/releases/download/v1.0/coco_ovd_base.pth) |
-| [COCO_OVD_Base_RKD](configs/coco/COCO_OVD_Base_RKD.yaml)                                    |  21.2   |  54.7  | 45.9 |     8h     |[model](https://github.com/hanoonaR/object-centric-ovd/releases/download/v1.0/coco_ovd_rkd.pth) |
-| [COCO_OVD_Base_PIS](configs/coco/COCO_OVD_Base_PIS.yaml)                                    |  30.4   |  52.6  | 46.8 |    8.5h    |[model](https://github.com/hanoonaR/object-centric-ovd/releases/download/v1.0/coco_ovd_pis.pth) |
-| [COCO_OVD_RKD_PIS](configs/coco/COCO_OVD_RKD_PIS.yaml)                                      |  31.5   |  52.8  | 47.2 |    8.5h    |[model](https://github.com/hanoonaR/object-centric-ovd/releases/download/v1.0/coco_ovd_rkd_pis.pth) |
-| [COCO_OVD_RKD_PIS_WeightTransfer](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer.yaml)        |  36.6   |  54.0  | 49.4 |    8.5h    |[model](https://github.com/hanoonaR/object-centric-ovd/releases/download/v1.0/coco_ovd_rkd_pis_weighttransfer.pth) |
-| [COCO_OVD_RKD_PIS_WeightTransfer_8x](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer_8x.yaml)  |  36.9   |  56.6  | 51.5 |  2.5 days  |[model](https://github.com/hanoonaR/object-centric-ovd/releases/download/v1.0/coco_ovd_rkd_pis_weighttransfer_8x.pth) |
+| [Base_OVD_RCNN_C4_repro](configs/coco/Base-OVD-RCNN-C4.yaml)                                      |   0.7 | 53.4 | 39.6 |     8h     |[model](https://drive.google.com/file/d/1yol1rZRCCCDGlRbX5ydDWtiqTKsIY4uR/view?usp=share_link) |
+| [COCO_OVD_Base_RKD_repro](configs/coco/COCO_OVD_Base_RKD.yaml)                                    |  21.3 | 54.5 | 45.8 |     8h     |[model](https://drive.google.com/file/d/1VQpI4BAfjb9vGZO2K9XuvCcXFyxRZ8Mf/view?usp=share_link) |
+| [COCO_OVD_Base_PIS-repro](configs/coco/COCO_OVD_Base_PIS.yaml)                                    |  33.2 | 50.1 | 45.7 |    8.5h    |[model](https://drive.google.com/file/d/1AkW0Y14VWiJY_JxANIiG2Av1SAOCjVwp/view?usp=share_link) |
+| [COCO_OVD_RKD_PIS_repro](configs/coco/COCO_OVD_RKD_PIS.yaml)                                      |  34.7 | 49.7 | 45.8 |    8.5h    |[model](https://drive.google.com/file/d/18bRrmqVs1c5-s5yk1NxYTIL0naNDJWHT/view?usp=share_link) |
+| [COCO_OVD_RKD_PIS_WeightTransfer_repro](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer.yaml)        |  39.0 | 49.9 | 47.0 |    8.5h    |[model](https://drive.google.com/file/d/11dy8F8JujIZyk80IIf3qpR5iUT4dlqLP/view?usp=share_link) |
+| [COCO_OVD_RKD_PIS_WeightTransfer_8x_repro](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer_8x.yaml)  |  40.1 | 53.9 | 50.3 |  2.5 days  |[model](https://drive.google.com/file/d/19USlM-w5u956W7jVtGIqWa_OXA1CE8Ko/view?usp=share_link) |
 
 ### New LVIS Baseline
 Our Mask R-CNN based LVIS Baseline ([mask_rcnn_R50FPN_CLIP_sigmoid](configs/lvis/mask_rcnn_R50FPN_CLIP_sigmoid.yaml)) 
