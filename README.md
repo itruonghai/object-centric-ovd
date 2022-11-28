@@ -45,7 +45,7 @@ To train or evaluate, first prepare the required [datasets](docs/DATASETS.md).
 To train a model, run the below command with the corresponding config file.
 
 ```
-python train_net.py --num-gpus 8 --config-file /path/to/config/name.yaml
+python train_net.py --num-gpus 4 --config-file /path/to/config/name.yaml
 ```
 
 Note: Some trainings are initialized from Supervised-base or RKD models. Download the corresponding pretrained models
