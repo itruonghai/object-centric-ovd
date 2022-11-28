@@ -17,7 +17,7 @@ All of our models are trained using 4 NVIDIA GTX3090 GPUs.
 We present performance of our approach that demonstrates state-of-the-art results on Open Vocabulary COCO benchmark dataset.
 
 
-### Open-vocabulary COCO 
+### Reproduction 
 
 | Name                                                                                        | APnovel | APbase |  AP  | Train-time | Download                                                                                                                            |
 |:--------------------------------------------------------------------------------------------|:-------:|:------:|:----:|:----------:|---------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -28,16 +28,14 @@ We present performance of our approach that demonstrates state-of-the-art result
 | [COCO_OVD_RKD_PIS_WeightTransfer_repro](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer.yaml)        |  39.0 | 49.9 | 47.0 |    8.5h    |[model](https://drive.google.com/file/d/11dy8F8JujIZyk80IIf3qpR5iUT4dlqLP/view?usp=share_link) |
 | [COCO_OVD_RKD_PIS_WeightTransfer_8x_repro](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer_8x.yaml)  |  40.1 | 53.9 | 50.3 |  2.5 days  |[model](https://drive.google.com/file/d/19USlM-w5u956W7jVtGIqWa_OXA1CE8Ko/view?usp=share_link) |
 
-### New LVIS Baseline
-Our Mask R-CNN based LVIS Baseline ([mask_rcnn_R50FPN_CLIP_sigmoid](configs/lvis/mask_rcnn_R50FPN_CLIP_sigmoid.yaml)) 
-achieves 12.2 rare class and 20.9 overall AP and trains in only 4.5 hours on 8 A100 GPUs. 
-We believe this could be a good baseline to be considered for the future research work in LVIS OVD setting.
+### Barlow Twins
 
-| Name                                                                 | APr  | APc  | APf  |  AP  | Epochs |
-|----------------------------------------------------------------------|:----:|:----:|:----:|:----:|:------:|
-| [PromptDet Baseline](https://arxiv.org/abs/2203.16513)               | 7.4  | 17.2 | 26.1 | 19.0 |   12   |
-| [ViLD-text](https://arxiv.org/abs/2104.13921)                        | 10.1 | 23.9 | 32.5 | 24.9 |  384   |
-| [Ours Baseline](configs/lvis/mask_rcnn_R50FPN_CLIP_sigmoid.yaml)     | 12.2 | 19.4 | 26.4 | 20.9 |   12   |
+| Name                                                                                        | APnovel | APbase |  AP  | Train-time | Download                                                                                                                            |
+|:--------------------------------------------------------------------------------------------|:-------:|:------:|:----:|:----------:|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| [COCO_OVD_Base_BT](configs/coco/COCO_OVD_Base_RKD.yaml)                                    |  25.4 | 54.9 | 47.2 |     8h     |[model](https://drive.google.com/file/d/1dZ1wzr2iFot5ILoD5JTpReqpz12usM5J/view?usp=share_link) |
+| [COCO_OVD_BT_PIS](configs/coco/COCO_OVD_RKD_PIS.yaml)                                      |  38.6 | 50.8 | 47.6 |    8.5h    |[model](https://drive.google.com/file/d/1aF9-TZuzQobDQ2MoW7HYLHkKuzRLYFeo/view?usp=share_link) |
+| [COCO_OVD_BT_PIS_WeightTransfer](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer.yaml)        |  40.6 | 51.5 | 48.6 |    8.5h    |[model](https://drive.google.com/file/d/1uEoFnvDpc_FnnbQNS4Vdyvkw-87-2JP3/view?usp=share_link) |
+| [COCO_OVD_BT_PIS_WeightTransfer_8x](configs/coco/COCO_OVD_RKD_PIS_WeightTransfer_8x.yaml)  |  42.0 | 54.7 | 51.4 |  2.5 days  |[model](https://drive.google.com/file/d/1N0LSc3Q0O78fGk9bvyQVzRN4-n9Bug5k/view?usp=share_link) |
 <hr />
 
 ## Training and Evaluation
