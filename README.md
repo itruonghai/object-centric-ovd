@@ -63,5 +63,5 @@ python train_net.py --num-gpus 4 --config-file /path/to/config/name.yaml --eval-
 ![main figure](docs/visualize.jpg)
 > <p align="justify">
 ## References
-Our RKD and PIS methods utilize the MViT model Multiscale Attention ViT with Late fusion (MAVL) proposed in the work [Class-agnostic Object Detection with Multi-modal Transformer (ECCV 2022)](https://github.com/mmaaz60/mvits_for_class_agnostic_od).
+Our methods utilize the MViT model Multiscale Attention ViT with Late fusion (MAVL) proposed in the work [Class-agnostic Object Detection with Multi-modal Transformer (ECCV 2022)](https://github.com/mmaaz60/mvits_for_class_agnostic_od).
 Our code is based on [Detic](https://github.com/facebookresearch/Detic) and [Object-centric OVD](https://github.com/hanoonaR/object-centric-ovd) repositories. We thank them for releasing their code.
